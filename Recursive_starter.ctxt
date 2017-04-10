@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=a\ b
+comment1.target=int\ btp(int,\ int)
+comment2.params=str
+comment2.target=void\ reverse_print(java.lang.String)
+comment2.text=\r\npublic\ static\ int\ foo(int\ x)\r\n{\r\n\ \ \ \ if\ (x\ >\ 0)\r\n\ \ \ \ \ \ \ \ foo(x+1);\r\n\r\n\ \ \ \ \ \ \ \ return\ 0;\r\n}\r\n
+comment3.params=num
+comment3.target=int\ mystery(int)
+numComments=4
