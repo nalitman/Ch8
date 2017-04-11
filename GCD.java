@@ -14,7 +14,7 @@ public class GCD
        System.out.print("\nInput another number: ");
        num2 = keys.nextInt();
        
-       if(num1 > num2)
+       if(num1 > num2 || num1 == num2)
         d = num2;
        else
         d = num1;
@@ -28,8 +28,7 @@ public class GCD
             return d;
         
         else
-         {   gcd(num1, num2, d - 1);
-             return 1;
+         {   return gcd(num1, num2, d - 1);
             }
         }
     }

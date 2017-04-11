@@ -26,7 +26,7 @@ public class Palindrome
     public static boolean tester(String word, int num, boolean p)
     {
         
-            for(int i
+            
             if(word.charAt(num) == word.charAt(word.length() - num - 1))
             {
                 p = true;
@@ -35,8 +35,15 @@ public class Palindrome
             else
                 p = false;
             
+            if(!p)
+                return p;
+               
+                if(num + 1 < word.length() - 1)
+                p = tester(word, num + 1, p);
             return p;
-            }
+                
+            
+        }
             
 }
 
