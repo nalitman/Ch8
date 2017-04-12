@@ -15,6 +15,8 @@ public class recursiveTriangle extends JApplet
 
 */  private int[] xPos = {720, 80, 400, 720};
     private int[] yPos = {600, 600, 40, 600};
+    private int[] newX = new int[3];
+    private int[] newY = new int[3];
 
 
    //-----------------------------------------------------------------
@@ -49,20 +51,25 @@ public class recursiveTriangle extends JApplet
             
 
             //make the x and y array (3 points + first point to finish triangle)
-            int ABMidx = (xPos[0] + xPos[1])/2, BCMidx = (xPos[1] + xPos[2])/2;
-            int CAMidx = (xPos[3] + xPos[0])/2;
+            int ABMidx = (xPos[0] + xPos[1])/2;
+            int BCMidx = (xPos[1] + xPos[2])/2;
+            int CAMidx = (xPos[2] + xPos[0])/2;
+            
+            int ABMidy = (yPos[0] + yPos[1])/2;
+            int BCMidy = (yPos[1] + yPos[2])/2;
+            int CAMidy = (yPos[2] + yPos[0])/2;
         
-            xPos[0] = ABMidx;
-            xPos[1] = BCMidx;
-            xPos[2] = CAMidx;
-            xPos[3] = ABMidx;
 
             //draw the Triangle
             page.drawPolyline(xPos, yPos, xPos.length);
+            
+            int [] newX = {xPos[0], ABMidx, CAMidx, xPos[0]};
+            int [] newY
         
             //create 3 x,y Array using the midpoints you calculated
             //example
             //int[] ATrix = {xPos[0],Segment1Midx,Segment2Midx, xPos[0]};
+            Triangle(xPos, yPos, page);
 
 
 
