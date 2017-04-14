@@ -15,8 +15,7 @@ public class recursiveTriangle extends JApplet
 
 */  private int[] xPos = {720, 80, 400, 720};
     private int[] yPos = {600, 600, 40, 600};
-    private int[] newX = new int[3];
-    private int[] newY = new int[3];
+    private int color = 0;
 
 
    //-----------------------------------------------------------------
@@ -33,7 +32,6 @@ public class recursiveTriangle extends JApplet
    //-----------------------------------------------------------------
    public void paint (Graphics page)
    {
-
         page.setColor (Color.red);
         page.drawPolyline (xPos, yPos, xPos.length);
 
@@ -45,7 +43,8 @@ public class recursiveTriangle extends JApplet
        //Find the distance between 2 points ex. - x,y & x1,y1
        double distance = Math.sqrt(Math.pow((xPos[1] - xPos[0]), 2) + Math.pow((yPos[1] - yPos[0]),2));
 
-        if (distance > 10)
+       color ++;
+        if (distance > 50)
         {
             //find the mid points of each line segment
             
@@ -58,19 +57,31 @@ public class recursiveTriangle extends JApplet
             int ABMidy = (yPos[0] + yPos[1])/2;
             int BCMidy = (yPos[1] + yPos[2])/2;
             int CAMidy = (yPos[2] + yPos[0])/2;
+            
+            int [] triX = {ABMidx, BCMidx, CAMidx, ABMidx};
+            int [] triY = {ABMidy, BCMidy, CAMidy, ABMidy};
         
 
             //draw the Triangle
-            page.drawPolyline(xPos, yPos, xPos.length);
+            page.drawPolyline(triX, triY, xPos.length);
             
             int [] newX = {xPos[0], ABMidx, CAMidx, xPos[0]};
-            int [] newY
-        
+            int [] newY = {yPos[0], ABMidy,CAMidy, yPos[0]};
+            
+            int [] newX2 = {ABMidx, xPos[1], BCMidx, ABMidx};
+            int [] newY2 = {ABMidy, yPos[1], BCMidy, ABMidy};
+            
+            int [] newX3 = {CAMidx, BCMidx, xPos[2], CAMidx};
+            int [] newY3 = {CAMidy, BCMidy, yPos[2], CAMidy};
+            
+            
             //create 3 x,y Array using the midpoints you calculated
             //example
             //int[] ATrix = {xPos[0],Segment1Midx,Segment2Midx, xPos[0]};
-            Triangle(xPos, yPos, page);
-
+            Triangle(newX, newY, page);
+            Triangle(triX, triY, page);
+            Triangle(newX2, newY2, page);
+            Triangle(newX3, newY3, page);
 
 
             // Three recursive calls for each section of triangle
